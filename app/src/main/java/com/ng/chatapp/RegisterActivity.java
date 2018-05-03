@@ -26,8 +26,6 @@ public class RegisterActivity extends AppCompatActivity {
     static final String CHAT_PREFS = "ChatPrefs";
     static final String DISPLAY_NAME_KEY = "username";
 
-    // TODO: Add member variables here:
-    // UI references.
     private AutoCompleteTextView mEmailView;
     private AutoCompleteTextView mUsernameView;
     private EditText mPasswordView;
@@ -59,7 +57,6 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        // hold of an instance of FirebaseAuth
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -83,7 +80,7 @@ public class RegisterActivity extends AppCompatActivity {
         boolean cancel = false;
         View focusView = null;
 
-        // Check for a valid password, if the user entered one.
+        // Check for a valid password
         if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
             mPasswordView.setError(getString(R.string.error_invalid_password));
             focusView = mPasswordView;
@@ -102,8 +99,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         if (cancel) {
-            // There was an error; don't attempt login and focus the first
-            // form field with an error.
+
             focusView.requestFocus();
         } else {
             createFirebaseUser();
